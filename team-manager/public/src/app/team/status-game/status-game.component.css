@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+.right {
+    text-align: right;
+}
+p {
+    font-size: 0.9em;
+}
 .red{
     display: block;
     margin: 0px auto;

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { TeamService } from './team/team.service';
 
 import { AppComponent } from './app.component';
-import { TeamComponent } from './team/team.component';
+import { TeamComponent, Login } from './team/team.component';
 import { PageNotFoundComponent } from './team/page-not-found/page-not-found.component';
 import { Dialog } from './team/player-list/player-list.component';
 import { PlayerListComponent } from './team/player-list/player-list.component';
@@ -24,6 +24,7 @@ import { StatusGameComponent } from './team/status-game/status-game.component';
     PlayerListComponent,
     PlayerNewComponent,
     StatusGameComponent,
+    Login,
     Dialog
   ],
   imports: [
@@ -32,9 +33,11 @@ import { StatusGameComponent } from './team/status-game/status-game.component';
     MatDialogModule,
     HttpModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     AppRoutingModule
   ],
-  entryComponents:[Dialog],
+  entryComponents:[Dialog, Login],
   providers: [TeamService],
   bootstrap: [AppComponent]
 })

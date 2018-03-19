@@ -1,7 +1,9 @@
-/* * {
-    margin: 0;
-    padding: 0;
-} */
+.right {
+    text-align: right;
+}
+p {
+    font-size: 0.9em;
+}
 .errors{
     width: inherit;
     height: 40px;

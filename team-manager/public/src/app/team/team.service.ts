@@ -10,9 +10,15 @@ export class TeamService {
   constructor(private _http: Http) { }
 
   login(user, callback) {
+    console.log('user in service >>>:', user);
     this.user = user;
     console.log('LOGIN success: ', this.user);
     callback(this.user);
+  }
+
+  logout(user, callback) {
+    console.log('LOGOUT success: Bye', this.user);
+    this.user = "";
   }
 
   getPlayersList(players) {

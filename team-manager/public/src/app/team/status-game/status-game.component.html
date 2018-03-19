@@ -1,7 +1,7 @@
 <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-secondary" [routerLink]="['/players/list']">List</button>
     <button type="button" class="btn btn-secondary" [routerLink]="['/players/addplayer']">Add Players</button>
-    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Logout</button>
+    <button type="button" class="btn btn-secondary" (click)="logout()">Logout</button>
 </div>
 <br><br>
 <div id="scroll">
@@ -9,6 +9,7 @@
 
   <button type="button" (click)="game = 1" class="btn btn-outline-info">Game 1   </button> <button type="button" (click)="game = 2" class="btn btn-outline-info"> Game 2 </button> <button type="button" (click)="game = 3" class="btn btn-outline-info"> Game 3</button>
   <br><br>
+  <p class="right">User: {{ user }}</p>
 <div class='box'>
   <table class="table table-hover" align="left">
     <thead>

@@ -9,6 +9,7 @@ import { TeamService } from '../team.service';
   styleUrls: ['./player-new.component.css']
 })
 export class PlayerNewComponent implements OnInit {
+  user;
   newPlayer: any;
 
   constructor(      
@@ -18,6 +19,7 @@ export class PlayerNewComponent implements OnInit {
 ) { }
 
   ngOnInit() {
+    this.user = this._teamService.user;
     this.newPlayer = { name: "", position: "" };
   }
 
@@ -27,5 +29,10 @@ export class PlayerNewComponent implements OnInit {
       this._router.navigate(['/players/list', res]);
     });
   };
+
+  logout() {
+    this._teamService.logout(this.user, (res) => { });
+    this._router.navigate(['/']);
+  }
 
 }

@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./status-game.component.css']
 })
 export class StatusGameComponent implements OnInit {
+  user;
   game;
   player;
   team;
   switch: boolean = true;
 
-  // items = [true, false]; 
-
   constructor(private _teamService: TeamService, private _router: Router) { }
 
   ngOnInit() {
+    this.user = this._teamService.user;
     this.game = 1;
     this.getPlayerList();
   }
@@ -28,6 +28,11 @@ export class StatusGameComponent implements OnInit {
     });
   }
 
+  logout() {
+    this._teamService.logout(this.user, (res) => { });
+    this._router.navigate(['/']);
+  }
+  
   switchPlaying(player) {
     if (player['game'][this.game]['action']['playing']) {
       player['game'][this.game]['action']['playing']    = false;
@@ -37,7 +42,7 @@ export class StatusGameComponent implements OnInit {
       player['game'][this.game]['action']['undefined']  = false;
     }
     this._teamService.updatePlayer(player, (res) => {
-      this.team.layer = res;
+      this.team.player = res;
     })
   }
 
@@ -50,7 +55,7 @@ export class StatusGameComponent implements OnInit {
         player['game'][this.game]['action']['undefined'] = false;
     }
     this._teamService.updatePlayer(player, (res) => {
-      this.team.layer = res;
+      this.team.player = res;
     })
   }
  
@@ -63,7 +68,7 @@ export class StatusGameComponent implements OnInit {
         player['game'][this.game]['action']['notplaying'] = false;
     }
     this._teamService.updatePlayer(player, (res) => {
-      this.team.layer = res;
+      this.team.player = res;
     })
   }
 

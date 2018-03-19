@@ -28,6 +28,11 @@ export class PlayerListComponent implements OnInit {
     });
   }
 
+  logout() {
+    this._teamService.logout(this.user, (res) => { });
+    this._router.navigate(['/']);
+  }
+
   openDialog(player): void {
     let dialogRef = this.dialog.open(Dialog, {
       width: '250px',
